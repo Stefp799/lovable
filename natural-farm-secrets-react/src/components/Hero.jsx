@@ -19,16 +19,13 @@ const Hero = () => {
 
       {/* Hero Content */}
       <div className="relative z-20 flex flex-col justify-center items-center h-full text-center text-white px-8">
-        <div className="bg-black bg-opacity-50 p-8 rounded-lg max-w-4xl">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Discover the Secrets of Natural Farming
+        <div className="max-w-4xl">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-shadow-lg">
+            Farming Wisdom, AI-Powered
           </h1>
-          <p className="text-xl md:text-2xl mb-8">
-            Learn about sustainable farming practices and organic solutions
+          <p className="text-2xl md:text-3xl mb-8 font-medium text-shadow-md">
+            Learn from avatars, rooted in soil and science
           </p>
-          <button className="bg-secondary hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg transition-colors duration-300">
-            Watch Now
-          </button>
         </div>
       </div>
     </section>

@@ -1,70 +1,184 @@
 import React from 'react'
-import VideoCard from './VideoCard'
 
 const VideoGrid = () => {
-  const videos = [
+  const featuredArticle = {
+    title: "Earthworms Separating by either Trommel or Shaking Deck",
+    description: "Modern Earthworm separators are explained in this video by our friendly famer from Tuscany Tony Busatta.",
+    date: "Aug 2, 2025",
+    videoId: "dQw4w9WgXcQ",
+    thumbnail: "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=800&h=400&fit=crop"
+  }
+
+  const articles = [
     {
       id: 1,
-      title: "Revolutionary Natural Pest Control Method Unveiled",
-      description: "Farmers across the country are adopting this new method that eliminates chemical pesticides while increasing crop yields by 30%.",
-      publishedAt: "Published 1 hour ago",
-      thumbnail: "https://images.unsplash.com/photo-1574943320219-553eb213f72d?w=640&h=360&fit=crop",
-      embedUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+      title: "Tony's Revolutionary CFT System: From Vineyard to Manufacturing Excellence",
+      description: "Watch as Tony Busatta demonstrates the complete journey from traditional Italian vineyard wisdom to cutting edge soil...",
+      date: "Jan 30, 2025",
+      videoId: "dQw4w9WgXcQ",
+      badge: "TODAY'S FEATURE"
     },
     {
       id: 2,
-      title: "How to Create Self-Sustaining Soil in 30 Days",
-      description: "Learn the step-by-step process of transforming your soil into a thriving ecosystem without chemical additives.",
-      publishedAt: "2 days ago",
-      embedUrl: "https://www.youtube.com/embed/1234567890"
-    },
-    {
-      id: 3,
-      title: "Secrets of Ancient Farming Techniques",
-      description: "Discover how ancient farmers maintained soil fertility for centuries without modern technology.",
-      publishedAt: "3 days ago",
-      embedUrl: "https://www.youtube.com/embed/9876543210"
-    },
-    {
-      id: 4,
-      title: "Companion Planting: The Ultimate Guide",
-      description: "Maximize your garden's potential with these proven companion planting combinations that boost growth and deter pests.",
-      publishedAt: "5 days ago",
-      embedUrl: "https://www.youtube.com/embed/5678901234"
-    },
-    {
-      id: 5,
-      title: "Organic Gardening Tips for Beginners",
-      description: "Expert gardener shares essential tips for starting your own organic garden, from soil preparation to pest control.",
-      publishedAt: "7 days ago",
-      embedUrl: "https://www.youtube.com/embed/4567890123"
-    },
-    {
-      id: 6,
-      title: "The Science of Crop Rotation",
-      description: "Learn how rotating crops can improve soil health and increase yields while reducing the need for chemical inputs.",
-      publishedAt: "10 days ago",
-      embedUrl: "https://www.youtube.com/embed/7890123456"
+      title: "Peter's Wood Chip Selection Secrets: Advanced Carbon Ratio Mastery",
+      description: "Master the art of wood chip selection with Peter's advanced techniques for optimal carbon ratios. Learn how different wo...",
+      date: "Jan 29, 2025",
+      videoId: "dQw4w9WgXcQ",
+      badge: "EXCLUSIVE"
     }
   ]
 
-  const featuredVideo = videos[0]
-  const regularVideos = videos.slice(1)
+  const categories = [
+    { name: "Earthworms", count: 12 },
+    { name: "Wood Chips", count: 8 },
+    { name: "KNF Methods", count: 15 },
+    { name: "Soil Health", count: 6 }
+  ]
+
+  const recentStories = [
+    {
+      title: "Peter's Wood Chip Selection Secrets",
+      date: "Jan 29, 2025",
+      description: "Advanced techniques for optimal carbon ratios..."
+    },
+    {
+      title: "Master Hun's Fermentation Fundamentals",
+      date: "Jan 28, 2025",
+      description: "Korean Natural Farming principles revealed..."
+    },
+    {
+      title: "The Busatta Vineyard Transformation",
+      date: "Jan 27, 2025",
+      description: "Three generations of Italian farming wisdom..."
+    }
+  ]
 
   return (
-    <section id="videos" className="py-16 px-8 max-w-6xl mx-auto">
-      <h2 className="text-4xl font-bold text-center text-primary mb-12">
-        Latest Farming Secrets
-      </h2>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {/* Featured Video */}
-        <VideoCard video={featuredVideo} featured={true} />
-        
-        {/* Regular Videos */}
-        {regularVideos.map(video => (
-          <VideoCard key={video.id} video={video} />
-        ))}
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          {/* Main Content */}
+          <div className="lg:col-span-3">
+            {/* Featured Article */}
+            <article className="mb-12">
+              <h1 className="text-4xl font-bold text-gray-900 mb-4">
+                {featuredArticle.title}
+              </h1>
+              
+              <div className="relative mb-6">
+                <span className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 text-sm font-bold z-10">
+                  BREAKING NEWS
+                </span>
+                <div className="aspect-video bg-black rounded-lg overflow-hidden">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${featuredArticle.videoId}`}
+                    title={featuredArticle.title}
+                    className="w-full h-full"
+                    frameBorder="0"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+              
+              <p className="text-gray-700 text-lg mb-4">
+                {featuredArticle.description}
+              </p>
+              <p className="text-gray-500 text-sm mb-6">{featuredArticle.date}</p>
+              <a href="#" className="text-purple-700 hover:text-purple-900 font-medium">
+                READ FULL STORY →
+              </a>
+            </article>
+
+            {/* Additional Articles */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {articles.map((article) => (
+                <article key={article.id} className="border-b border-gray-200 pb-6">
+                  <div className="relative mb-4">
+                    <span className={`absolute top-2 left-2 px-2 py-1 text-xs font-bold text-white z-10 ${
+                      article.badge === 'EXCLUSIVE' ? 'bg-purple-600' : 'bg-blue-600'
+                    }`}>
+                      {article.badge}
+                    </span>
+                    <div className="aspect-video bg-black rounded overflow-hidden">
+                      <iframe
+                        src={`https://www.youtube.com/embed/${article.videoId}`}
+                        title={article.title}
+                        className="w-full h-full"
+                        frameBorder="0"
+                        allowFullScreen
+                      />
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
+                    {article.title}
+                  </h3>
+                  <p className="text-gray-700 mb-2">{article.description}</p>
+                  <p className="text-gray-500 text-sm mb-3">{article.date}</p>
+                  <a href="#" className="text-purple-700 hover:text-purple-900 font-medium text-sm">
+                    READ FULL STORY →
+                  </a>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          {/* Sidebar */}
+          <div className="lg:col-span-1">
+            {/* Categories */}
+            <div className="bg-gray-50 p-6 rounded-lg mb-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Categories</h3>
+              <ul className="space-y-2">
+                {categories.map((category, index) => (
+                  <li key={index} className="flex justify-between items-center">
+                    <a href="#" className="text-gray-700 hover:text-purple-700 transition-colors">
+                      {category.name}
+                    </a>
+                    <span className="text-gray-500 text-sm">{category.count}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Recent Stories */}
+            <div className="bg-gray-50 p-6 rounded-lg mb-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Recent Stories</h3>
+              <div className="space-y-4">
+                {recentStories.map((story, index) => (
+                  <div key={index} className="border-b border-gray-200 pb-3 last:border-b-0">
+                    <h4 className="font-semibold text-gray-900 text-sm mb-1">
+                      <a href="#" className="hover:text-purple-700 transition-colors">
+                        {story.title}
+                      </a>
+                    </h4>
+                    <p className="text-gray-500 text-xs mb-1">{story.date}</p>
+                    <p className="text-gray-600 text-sm">{story.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Newsletter Signup */}
+            <div className="bg-purple-800 p-6 rounded-lg text-white">
+              <h3 className="text-xl font-bold mb-2">Daily Secrets</h3>
+              <p className="text-purple-100 mb-4 text-sm">
+                Get tomorrow's farming insights delivered to your inbox
+              </p>
+              <form className="space-y-3">
+                <input
+                  type="email"
+                  placeholder="Your email"
+                  className="w-full px-3 py-2 rounded text-gray-900 text-sm"
+                />
+                <button
+                  type="submit"
+                  className="w-full bg-yellow-500 hover:bg-yellow-600 text-purple-900 font-bold py-2 px-4 rounded transition-colors"
+                >
+                  Subscribe
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   )
